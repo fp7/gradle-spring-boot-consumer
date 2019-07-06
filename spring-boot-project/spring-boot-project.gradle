@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation platform('org.springframework.boot:spring-boot-dependencies:2.1.6.RELEASE')
+}
