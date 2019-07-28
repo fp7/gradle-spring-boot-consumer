@@ -10,3 +10,7 @@ repositories {
 dependencies {
     implementation platform('org.springframework.boot:spring-boot-dependencies:2.1.6.RELEASE')
 }
+
+bootJar {
+    mainClassName = 'io.github.fp7.gradle_spring_boot_consumer.Main'
+}

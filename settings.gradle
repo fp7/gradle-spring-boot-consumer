@@ -1,6 +1,8 @@
+includeBuild 'gradle-spring-boot-consumer'
 include 'spring-boot-project'
+include 'example-project'
 
-rootProject.name = 'gradle-spring-boot-consumer'
+rootProject.name = 'gradle-spring-boot-consumer-project'
 
 rootProject.children.each {
     it.buildFileName = "${it.name}.gradle"

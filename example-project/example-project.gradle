@@ -1,0 +1,26 @@
+buildscript {
+    dependencies {
+        classpath "io.github.fp7:gradle-spring-boot-consumer"
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'io.github.fp7.gradle-spring-boot-consumer'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    boot project(':spring-boot-project')
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.github.fp7.gradle.example.Example'
+    }
+}
+

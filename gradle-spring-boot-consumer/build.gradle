@@ -1,0 +1,18 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'io.github.fp7.gradle-spring-boot-consumer'
+            implementationClass = 'io.github.fp7.gradle.BootConsumerPlugin'
+        }
+    }
+}
+
+group = "io.github.fp7"
+
+dependencies {
+    gradleApi()
+}
