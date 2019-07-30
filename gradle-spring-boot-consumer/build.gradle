@@ -1,5 +1,10 @@
 plugins {
     id 'java-gradle-plugin'
+    id 'com.github.sherter.google-java-format' version '0.8'
+}
+
+repositories {
+    jcenter()
 }
 
 gradlePlugin {
@@ -11,8 +16,11 @@ gradlePlugin {
     }
 }
 
-group = "io.github.fp7"
+group = 'io.github.fp7'
 
 dependencies {
     gradleApi()
 }
+
+verifyGoogleJavaFormat.outputs.upToDateWhen { true }
+check.dependsOn(verifyGoogleJavaFormat)

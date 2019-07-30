@@ -27,7 +27,7 @@ public class BootConsumerPlugin implements Plugin<Project> {
                   target
                       .getTasks()
                       .register(
-                          "boot-dependencies",
+                          "bootDependencies",
                           Copy.class,
                           task -> {
                             task.getInputs().files(bootCfg);
@@ -67,16 +67,20 @@ public class BootConsumerPlugin implements Plugin<Project> {
                                                                 .getByType(SourceSetContainer.class)
                                                                 .getByName(
                                                                     SourceSet.MAIN_SOURCE_SET_NAME);
-                                                        mainSourceSet.setCompileClasspath(
-                                                            mainSourceSet
-                                                                .getCompileClasspath()
-                                                                .plus(
-                                                                    target.files(
-                                                                        String.format(
-                                                                            "%s/%s/%s",
-                                                                            "build/jars",
-                                                                            targetPath,
-                                                                            "BOOT-INF/classes/"))));
+
+                                                        target
+                                                            .getDependencies()
+                                                            .add(
+                                                                JavaPlugin
+                                                                    .IMPLEMENTATION_CONFIGURATION_NAME,
+                                                                target.files(
+                                                                    String.format(
+                                                                        "%s/%s/%s",
+                                                                        "build/jars",
+                                                                        targetPath,
+                                                                        "BOOT-INF/classes/")));
+
+                                                        ;
                                                       });
                                                 }));
                           });

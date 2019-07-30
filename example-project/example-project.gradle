@@ -15,12 +15,22 @@ repositories {
 }
 
 dependencies {
-    boot project(':spring-boot-project')
+    boot project(path: ':spring-boot-project', configuration: 'bootArchives')
+
+    implementation(platform('org.junit:junit-bom:5.5.1'))
+
+    testCompile('org.junit.jupiter:junit-jupiter-api')
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
+
+test {
+    useJUnitPlatform()
+}
+
 
 jar {
     manifest {
         attributes 'Main-Class': 'io.github.fp7.gradle.example.Example'
     }
 }
-

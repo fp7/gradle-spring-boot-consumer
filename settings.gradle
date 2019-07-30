@@ -1,5 +1,5 @@
-includeBuild 'gradle-spring-boot-consumer'
 include 'spring-boot-project'
+includeBuild 'gradle-spring-boot-consumer'
 include 'example-project'
 
 rootProject.name = 'gradle-spring-boot-consumer-project'
