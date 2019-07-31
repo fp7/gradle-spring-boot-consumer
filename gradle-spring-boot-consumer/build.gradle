@@ -1,4 +1,5 @@
 plugins {
+    id "com.gradle.plugin-publish" version "0.10.1"
     id 'java-gradle-plugin'
     id 'com.github.sherter.google-java-format' version '0.8'
 }
@@ -7,9 +8,12 @@ repositories {
     jcenter()
 }
 
+group 'io.github.fp7'
+version '1'
+
 gradlePlugin {
     plugins {
-        simplePlugin {
+        consumerPlugin {
             id = 'io.github.fp7.gradle-spring-boot-consumer'
             implementationClass = 'io.github.fp7.gradle.BootConsumerPlugin'
         }
@@ -17,6 +21,18 @@ gradlePlugin {
 }
 
 group = 'io.github.fp7'
+
+pluginBundle {
+    website = 'https://github.com/fp7/gradle-spring-boot-consumer'
+    vcsUrl = 'https://github.com/fp7/gradle-spring-boot-consumer'
+    description = 'Consume spring boot jars as dependencies'
+
+    plugins {
+        greetingsPlugin {
+            displayName = 'Gradle Spring Boot Consumer Plugin'
+        }
+    }
+}
 
 dependencies {
     gradleApi()
